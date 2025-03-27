@@ -19,7 +19,7 @@ The architecture consists of:
 
 - Visualization: Metabase for dashboarding
 
-![Ecommerce ETL Architecture](image.png)
+![Ecommerce ETL Architecture](image-1.png)
 
 ## Detailed Component Analysis
 
@@ -56,7 +56,7 @@ Issues Faced: Geolocation dataset had over 1 million rows, causing ingestion cha
 
 **Visualization with Metabase**
 **Insights**
-![Insights](image-1.png)
+![Insights](image.png)
 
 
 ## How to Run the Project
