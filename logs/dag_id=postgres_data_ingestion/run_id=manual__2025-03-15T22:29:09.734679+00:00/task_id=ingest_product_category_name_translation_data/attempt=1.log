@@ -1,0 +1,16 @@
+[2025-03-15T22:29:23.892+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: postgres_data_ingestion.ingest_product_category_name_translation_data manual__2025-03-15T22:29:09.734679+00:00 [queued]>
+[2025-03-15T22:29:23.937+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: postgres_data_ingestion.ingest_product_category_name_translation_data manual__2025-03-15T22:29:09.734679+00:00 [queued]>
+[2025-03-15T22:29:23.937+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-03-15T22:29:23.988+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): ingest_product_category_name_translation_data> on 2025-03-15 22:29:09.734679+00:00
+[2025-03-15T22:29:24.093+0000] {standard_task_runner.py:57} INFO - Started process 336 to run task
+[2025-03-15T22:29:24.176+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'postgres_data_ingestion', 'ingest_product_category_name_translation_data', 'manual__2025-03-15T22:29:09.734679+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_dag.py', '--cfg-path', '/tmp/tmp_68gv21b']
+[2025-03-15T22:29:24.215+0000] {standard_task_runner.py:85} INFO - Job 10: Subtask ingest_product_category_name_translation_data
+[2025-03-15T22:29:24.643+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-15T22:29:25.807+0000] {task_command.py:410} INFO - Running <TaskInstance: postgres_data_ingestion.ingest_product_category_name_translation_data manual__2025-03-15T22:29:09.734679+00:00 [running]> on host d1d9f3f582cd
+[2025-03-15T22:29:27.370+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Blessing' AIRFLOW_CTX_DAG_ID='postgres_data_ingestion' AIRFLOW_CTX_TASK_ID='ingest_product_category_name_translation_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-15T22:29:09.734679+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-15T22:29:09.734679+00:00'
+[2025-03-15T22:29:28.278+0000] {logging_mixin.py:149} INFO - Ingesting data into the 'product_category_name_translation' table...
+[2025-03-15T22:29:30.501+0000] {logging_mixin.py:149} INFO - Data successfully ingested into the 'product_category_name_translation' table.
+[2025-03-15T22:29:30.538+0000] {python.py:183} INFO - Done. Returned value was: Successfully ingested product_category_name_translation
+[2025-03-15T22:29:31.999+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=postgres_data_ingestion, task_id=ingest_product_category_name_translation_data, execution_date=20250315T222909, start_date=20250315T222923, end_date=20250315T222931
+[2025-03-15T22:29:32.218+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-03-15T22:29:32.718+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

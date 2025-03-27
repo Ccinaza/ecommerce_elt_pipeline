@@ -1,0 +1,32 @@
+[2025-03-26T23:58:25.232+0000] {processor.py:157} INFO - Started process (PID=175) to work on /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:58:25.237+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/postgres_to_bigquery_transfer.py for tasks to queue
+[2025-03-26T23:58:25.246+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:58:25.245+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:58:25.266+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py:429 AirflowProviderDeprecationWarning: `exists_ok` parameter is deprecated, please use `if_exists`
+[2025-03-26T23:58:25.301+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_to_bigquery_transfer']) retrieved from /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:58:25.362+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:58:25.361+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2025-03-26T23:58:25.462+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:58:25.462+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_to_bigquery_transfer to None, run_after=None
+[2025-03-26T23:58:25.509+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/postgres_to_bigquery_transfer.py took 0.280 seconds
+[2025-03-26T23:58:56.303+0000] {processor.py:157} INFO - Started process (PID=190) to work on /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:58:56.304+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/postgres_to_bigquery_transfer.py for tasks to queue
+[2025-03-26T23:58:56.311+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:58:56.310+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:58:56.340+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py:429 AirflowProviderDeprecationWarning: `exists_ok` parameter is deprecated, please use `if_exists`
+[2025-03-26T23:58:56.375+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_to_bigquery_transfer']) retrieved from /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:58:56.401+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:58:56.400+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2025-03-26T23:58:56.440+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:58:56.440+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_to_bigquery_transfer to None, run_after=None
+[2025-03-26T23:58:56.460+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/postgres_to_bigquery_transfer.py took 0.172 seconds
+[2025-03-26T23:59:27.191+0000] {processor.py:157} INFO - Started process (PID=204) to work on /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:59:27.193+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/postgres_to_bigquery_transfer.py for tasks to queue
+[2025-03-26T23:59:27.199+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:59:27.199+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:59:27.219+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py:429 AirflowProviderDeprecationWarning: `exists_ok` parameter is deprecated, please use `if_exists`
+[2025-03-26T23:59:27.257+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_to_bigquery_transfer']) retrieved from /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:59:27.328+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:59:27.328+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2025-03-26T23:59:27.358+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:59:27.358+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_to_bigquery_transfer to None, run_after=None
+[2025-03-26T23:59:27.374+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/postgres_to_bigquery_transfer.py took 0.191 seconds
+[2025-03-26T23:59:57.839+0000] {processor.py:157} INFO - Started process (PID=219) to work on /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:59:57.842+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/postgres_to_bigquery_transfer.py for tasks to queue
+[2025-03-26T23:59:57.846+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:59:57.846+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:59:57.868+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py:429 AirflowProviderDeprecationWarning: `exists_ok` parameter is deprecated, please use `if_exists`
+[2025-03-26T23:59:57.889+0000] {processor.py:836} INFO - DAG(s) dict_keys(['postgres_to_bigquery_transfer']) retrieved from /opt/airflow/dags/postgres_to_bigquery_transfer.py
+[2025-03-26T23:59:57.930+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:59:57.929+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2025-03-26T23:59:57.955+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:59:57.954+0000] {dag.py:3490} INFO - Setting next_dagrun for postgres_to_bigquery_transfer to None, run_after=None
+[2025-03-26T23:59:57.974+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/postgres_to_bigquery_transfer.py took 0.144 seconds

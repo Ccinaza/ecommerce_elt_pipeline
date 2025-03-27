@@ -1,0 +1,17 @@
+[2025-03-27T01:13:46.463+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_products_postgres_to_bq.gcs_to_bq manual__2025-03-27T01:13:18.576085+00:00 [queued]>
+[2025-03-27T01:13:46.476+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_products_postgres_to_bq.gcs_to_bq manual__2025-03-27T01:13:18.576085+00:00 [queued]>
+[2025-03-27T01:13:46.476+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2025-03-27T01:13:46.492+0000] {taskinstance.py:1327} INFO - Executing <Task(GCSToBigQueryOperator): gcs_to_bq> on 2025-03-27 01:13:18.576085+00:00
+[2025-03-27T01:13:46.501+0000] {standard_task_runner.py:57} INFO - Started process 3825 to run task
+[2025-03-27T01:13:46.505+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'load_products_postgres_to_bq', 'gcs_to_bq', 'manual__2025-03-27T01:13:18.576085+00:00', '--job-id', '64', '--raw', '--subdir', 'DAGS_FOLDER/products_to_bq.py', '--cfg-path', '/tmp/tmp4dg33r86']
+[2025-03-27T01:13:46.508+0000] {standard_task_runner.py:85} INFO - Job 64: Subtask gcs_to_bq
+[2025-03-27T01:13:46.532+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-27T01:13:46.606+0000] {task_command.py:410} INFO - Running <TaskInstance: load_products_postgres_to_bq.gcs_to_bq manual__2025-03-27T01:13:18.576085+00:00 [running]> on host d0664e8a7014
+[2025-03-27T01:13:47.173+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Blessing Angus' AIRFLOW_CTX_DAG_ID='load_products_postgres_to_bq' AIRFLOW_CTX_TASK_ID='gcs_to_bq' AIRFLOW_CTX_EXECUTION_DATE='2025-03-27T01:13:18.576085+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-27T01:13:18.576085+00:00'
+[2025-03-27T01:13:47.200+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2025-03-27T01:13:47.219+0000] {gcs_to_bigquery.py:373} INFO - Using existing BigQuery table for storing data...
+[2025-03-27T01:13:47.269+0000] {gcs_to_bigquery.py:377} INFO - Executing: {'load': {'autodetect': True, 'createDisposition': 'CREATE_IF_NEEDED', 'destinationTable': {'projectId': 'smiling-audio-448313-p0', 'datasetId': 'ecommerce', 'tableId': 'products'}, 'sourceFormat': 'NEWLINE_DELIMITED_JSON', 'sourceUris': ['gs://alt-ecommerce-data/postgres_public/products/20250327.json'], 'writeDisposition': 'WRITE_TRUNCATE', 'ignoreUnknownValues': False}}
+[2025-03-27T01:13:47.274+0000] {bigquery.py:1592} INFO - Inserting job airflow_load_products_postgres_to_bq_gcs_to_bq_2025_03_27T01_13_18_576085_00_00_2248d24b8afc209e989a3d26f1cce23a
+[2025-03-27T01:13:52.012+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=load_products_postgres_to_bq, task_id=gcs_to_bq, execution_date=20250327T011318, start_date=20250327T011346, end_date=20250327T011352
+[2025-03-27T01:13:52.086+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-03-27T01:13:52.112+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

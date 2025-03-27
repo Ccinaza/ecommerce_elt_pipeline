@@ -1,0 +1,79 @@
+[2025-03-27T01:56:27.582+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_geolocation_postgres_to_bq.postgres_to_gcs_batch_0 manual__2025-03-27T01:47:30.053330+00:00 [queued]>
+[2025-03-27T01:56:27.592+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_geolocation_postgres_to_bq.postgres_to_gcs_batch_0 manual__2025-03-27T01:47:30.053330+00:00 [queued]>
+[2025-03-27T01:56:27.593+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 3
+[2025-03-27T01:56:27.608+0000] {taskinstance.py:1327} INFO - Executing <Task(PostgresToGCSOperator): postgres_to_gcs_batch_0> on 2025-03-27 01:47:30.053330+00:00
+[2025-03-27T01:56:27.615+0000] {standard_task_runner.py:57} INFO - Started process 8593 to run task
+[2025-03-27T01:56:27.620+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'load_geolocation_postgres_to_bq', 'postgres_to_gcs_batch_0', 'manual__2025-03-27T01:47:30.053330+00:00', '--job-id', '97', '--raw', '--subdir', 'DAGS_FOLDER/geolocation_postgres_to_bq.py', '--cfg-path', '/tmp/tmpmerwv29z']
+[2025-03-27T01:56:27.623+0000] {standard_task_runner.py:85} INFO - Job 97: Subtask postgres_to_gcs_batch_0
+[2025-03-27T01:56:27.651+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-27T01:56:27.708+0000] {task_command.py:410} INFO - Running <TaskInstance: load_geolocation_postgres_to_bq.postgres_to_gcs_batch_0 manual__2025-03-27T01:47:30.053330+00:00 [running]> on host d0664e8a7014
+[2025-03-27T01:56:28.975+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Blessing Angus' AIRFLOW_CTX_DAG_ID='load_geolocation_postgres_to_bq' AIRFLOW_CTX_TASK_ID='postgres_to_gcs_batch_0' AIRFLOW_CTX_EXECUTION_DATE='2025-03-27T01:47:30.053330+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-27T01:47:30.053330+00:00'
+[2025-03-27T01:56:28.977+0000] {sql_to_gcs.py:155} INFO - Executing query
+[2025-03-27T01:56:29.030+0000] {base.py:73} INFO - Using connection ID 'postgres_default' for task execution.
+[2025-03-27T01:56:30.737+0000] {sql_to_gcs.py:174} INFO - Writing local data files
+[2025-03-27T01:56:39.287+0000] {sql_to_gcs.py:180} INFO - Uploading chunk file #0 to GCS.
+[2025-03-27T01:56:39.326+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2025-03-27T01:57:21.107+0000] {local_task_job_runner.py:115} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-03-27T01:57:21.261+0000] {process_utils.py:135} INFO - Sending Signals.SIGTERM to group 8593. PIDs of all processes in the group: [8593]
+[2025-03-27T01:57:21.267+0000] {process_utils.py:86} INFO - Sending the signal Signals.SIGTERM to group 8593
+[2025-03-27T01:57:21.304+0000] {taskinstance.py:1517} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-03-27T01:57:21.481+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/transfers/sql_to_gcs.py", line 181, in execute
+    self._upload_to_gcs(file_to_upload)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/transfers/sql_to_gcs.py", line 475, in _upload_to_gcs
+    metadata=metadata,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 533, in upload
+    partial(blob.upload_from_filename, filename=filename, content_type=mime_type, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 490, in _call_with_retry
+    f()
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/cloud/storage/blob.py", line 2697, in upload_from_filename
+    retry=retry,
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/cloud/storage/blob.py", line 2553, in upload_from_file
+    retry=retry,
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/cloud/storage/blob.py", line 2384, in _do_upload
+    retry=retry,
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/cloud/storage/blob.py", line 2215, in _do_resumable_upload
+    response = upload.transmit_next_chunk(transport, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/resumable_media/requests/upload.py", line 516, in transmit_next_chunk
+    retriable_request, self._get_status_code, self._retry_strategy
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/resumable_media/requests/_request_helpers.py", line 155, in wait_and_retry
+    response = func()
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/resumable_media/requests/upload.py", line 508, in retriable_request
+    method, url, data=payload, headers=headers, timeout=timeout
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/auth/transport/requests.py", line 555, in request
+    **kwargs
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 497, in send
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 721, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 415, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1075, in _send_output
+    self.send(chunk)
+  File "/usr/local/lib/python3.7/http/client.py", line 997, in send
+    self.sock.sendall(data)
+  File "/usr/local/lib/python3.7/ssl.py", line 1034, in sendall
+    v = self.send(byte_view[count:])
+  File "/usr/local/lib/python3.7/ssl.py", line 1003, in send
+    return self._sslobj.write(data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1519, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2025-03-27T01:57:21.567+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=load_geolocation_postgres_to_bq, task_id=postgres_to_gcs_batch_0, execution_date=20250327T014730, start_date=20250327T015627, end_date=20250327T015721
+[2025-03-27T01:57:21.648+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 97 for task postgres_to_gcs_batch_0 (Task received SIGTERM signal; 8593)
+[2025-03-27T01:57:21.708+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=8593, status='terminated', exitcode=1, started='01:56:27') (8593) terminated with exit code 1
+[2025-03-27T01:57:21.714+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 143
+[2025-03-27T01:57:21.805+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

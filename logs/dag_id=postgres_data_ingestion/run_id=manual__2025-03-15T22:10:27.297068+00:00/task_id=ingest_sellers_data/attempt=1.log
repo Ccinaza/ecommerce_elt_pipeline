@@ -1,0 +1,32 @@
+[2025-03-15T22:10:33.625+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: postgres_data_ingestion.ingest_sellers_data manual__2025-03-15T22:10:27.297068+00:00 [queued]>
+[2025-03-15T22:10:33.648+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: postgres_data_ingestion.ingest_sellers_data manual__2025-03-15T22:10:27.297068+00:00 [queued]>
+[2025-03-15T22:10:33.650+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-03-15T22:10:33.703+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): ingest_sellers_data> on 2025-03-15 22:10:27.297068+00:00
+[2025-03-15T22:10:33.747+0000] {standard_task_runner.py:57} INFO - Started process 437 to run task
+[2025-03-15T22:10:33.774+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'postgres_data_ingestion', 'ingest_sellers_data', 'manual__2025-03-15T22:10:27.297068+00:00', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_dag.py', '--cfg-path', '/tmp/tmp08xtk0oa']
+[2025-03-15T22:10:33.805+0000] {standard_task_runner.py:85} INFO - Job 54: Subtask ingest_sellers_data
+[2025-03-15T22:10:34.089+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-15T22:10:34.645+0000] {task_command.py:410} INFO - Running <TaskInstance: postgres_data_ingestion.ingest_sellers_data manual__2025-03-15T22:10:27.297068+00:00 [running]> on host fb89872f45b6
+[2025-03-15T22:10:35.026+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Blessing' AIRFLOW_CTX_DAG_ID='postgres_data_ingestion' AIRFLOW_CTX_TASK_ID='ingest_sellers_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-15T22:10:27.297068+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-15T22:10:27.297068+00:00'
+[2025-03-15T22:10:35.038+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/data_ingestion_dag.py", line 53, in ingest_table_data
+    engine = create_engine(f'postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}')
+  File "<string>", line 2, in create_engine
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 375, in warned
+    return fn(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 514, in create_engine
+    u = _url.make_url(url)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/url.py", line 738, in make_url
+    return _parse_url(name_or_url)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/url.py", line 794, in _parse_url
+    components["port"] = int(components["port"])
+ValueError: invalid literal for int() with base 10: 'None'
+[2025-03-15T22:10:35.083+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=postgres_data_ingestion, task_id=ingest_sellers_data, execution_date=20250315T221027, start_date=20250315T221033, end_date=20250315T221035
+[2025-03-15T22:10:35.127+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 54 for task ingest_sellers_data (invalid literal for int() with base 10: 'None'; 437)
+[2025-03-15T22:10:35.169+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2025-03-15T22:10:35.283+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

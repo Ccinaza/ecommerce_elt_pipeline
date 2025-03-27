@@ -1,0 +1,17 @@
+[2025-03-15T23:11:17.646+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: transfer_to_bq.transfer_tasks.load_sellers_to_bigquery manual__2025-03-15T23:08:59.706367+00:00 [queued]>
+[2025-03-15T23:11:17.660+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: transfer_to_bq.transfer_tasks.load_sellers_to_bigquery manual__2025-03-15T23:08:59.706367+00:00 [queued]>
+[2025-03-15T23:11:17.660+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 4
+[2025-03-15T23:11:17.920+0000] {taskinstance.py:1327} INFO - Executing <Task(GCSToBigQueryOperator): transfer_tasks.load_sellers_to_bigquery> on 2025-03-15 23:08:59.706367+00:00
+[2025-03-15T23:11:17.957+0000] {standard_task_runner.py:57} INFO - Started process 377 to run task
+[2025-03-15T23:11:17.978+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'transfer_to_bq', 'transfer_tasks.load_sellers_to_bigquery', 'manual__2025-03-15T23:08:59.706367+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/transfer_to_bq.py', '--cfg-path', '/tmp/tmp87jlx_79']
+[2025-03-15T23:11:18.006+0000] {standard_task_runner.py:85} INFO - Job 47: Subtask transfer_tasks.load_sellers_to_bigquery
+[2025-03-15T23:11:18.372+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-15T23:11:21.454+0000] {task_command.py:410} INFO - Running <TaskInstance: transfer_to_bq.transfer_tasks.load_sellers_to_bigquery manual__2025-03-15T23:08:59.706367+00:00 [running]> on host 003eb9c808ff
+[2025-03-15T23:11:25.321+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='transfer_to_bq' AIRFLOW_CTX_TASK_ID='transfer_tasks.load_sellers_to_bigquery' AIRFLOW_CTX_EXECUTION_DATE='2025-03-15T23:08:59.706367+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-15T23:08:59.706367+00:00'
+[2025-03-15T23:11:25.785+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2025-03-15T23:11:38.574+0000] {gcs_to_bigquery.py:373} INFO - Using existing BigQuery table for storing data...
+[2025-03-15T23:11:38.729+0000] {gcs_to_bigquery.py:377} INFO - Executing: {'load': {'autodetect': True, 'createDisposition': 'CREATE_IF_NEEDED', 'destinationTable': {'projectId': 'smiling-audio-448313-p0', 'datasetId': 'ecommerce', 'tableId': 'sellers'}, 'sourceFormat': 'NEWLINE_DELIMITED_JSON', 'sourceUris': ['gs://alt-ecommerce-data/data/sellers/sellers_2025-03-15.json'], 'writeDisposition': 'WRITE_APPEND', 'ignoreUnknownValues': False}}
+[2025-03-15T23:11:38.730+0000] {bigquery.py:1592} INFO - Inserting job airflow_transfer_to_bq_transfer_tasks_load_sellers_to_bigquery_2025_03_15T23_08_59_706367_00_00_0de30c7c95c728df2690671d493f4441
+[2025-03-15T23:11:48.082+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=transfer_to_bq, task_id=transfer_tasks.load_sellers_to_bigquery, execution_date=20250315T230859, start_date=20250315T231117, end_date=20250315T231148
+[2025-03-15T23:11:48.152+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-03-15T23:11:48.236+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

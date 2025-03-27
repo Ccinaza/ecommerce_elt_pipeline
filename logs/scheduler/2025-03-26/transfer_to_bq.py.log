@@ -1,0 +1,96 @@
+[2025-03-26T23:58:25.196+0000] {processor.py:157} INFO - Started process (PID=172) to work on /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:58:25.203+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/transfer_to_bq.py for tasks to queue
+[2025-03-26T23:58:25.211+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:58:25.211+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:58:25.224+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py:429 AirflowProviderDeprecationWarning: `exists_ok` parameter is deprecated, please use `if_exists`
+[2025-03-26T23:58:25.241+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:58:25.232+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/transfer_to_bq.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/transfer_to_bq.py", line 84, in <module>
+    timeout=300
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 429, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/transfers/gcs_to_bigquery.py", line 230, in __init__
+    super().__init__(**kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 429, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 789, in __init__
+    f"Invalid arguments were passed to {self.__class__.__name__} (task_id: {task_id}). "
+airflow.exceptions.AirflowException: Invalid arguments were passed to GCSToBigQueryOperator (task_id: load_customers_to_bigquery). Invalid arguments were:
+**kwargs: {'timeout': 300}
+[2025-03-26T23:58:25.242+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:58:25.305+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/transfer_to_bq.py took 0.118 seconds
+[2025-03-26T23:58:56.303+0000] {processor.py:157} INFO - Started process (PID=187) to work on /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:58:56.305+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/transfer_to_bq.py for tasks to queue
+[2025-03-26T23:58:56.311+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:58:56.311+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:58:56.340+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py:429 AirflowProviderDeprecationWarning: `exists_ok` parameter is deprecated, please use `if_exists`
+[2025-03-26T23:58:56.353+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:58:56.347+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/transfer_to_bq.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/transfer_to_bq.py", line 84, in <module>
+    timeout=300
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 429, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/transfers/gcs_to_bigquery.py", line 230, in __init__
+    super().__init__(**kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 429, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 789, in __init__
+    f"Invalid arguments were passed to {self.__class__.__name__} (task_id: {task_id}). "
+airflow.exceptions.AirflowException: Invalid arguments were passed to GCSToBigQueryOperator (task_id: load_customers_to_bigquery). Invalid arguments were:
+**kwargs: {'timeout': 300}
+[2025-03-26T23:58:56.353+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:58:56.401+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/transfer_to_bq.py took 0.113 seconds
+[2025-03-26T23:59:27.175+0000] {processor.py:157} INFO - Started process (PID=202) to work on /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:59:27.183+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/transfer_to_bq.py for tasks to queue
+[2025-03-26T23:59:27.192+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:59:27.192+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:59:27.213+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py:429 AirflowProviderDeprecationWarning: `exists_ok` parameter is deprecated, please use `if_exists`
+[2025-03-26T23:59:27.229+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:59:27.223+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/transfer_to_bq.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/transfer_to_bq.py", line 84, in <module>
+    timeout=300
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 429, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/transfers/gcs_to_bigquery.py", line 230, in __init__
+    super().__init__(**kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 429, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 789, in __init__
+    f"Invalid arguments were passed to {self.__class__.__name__} (task_id: {task_id}). "
+airflow.exceptions.AirflowException: Invalid arguments were passed to GCSToBigQueryOperator (task_id: load_customers_to_bigquery). Invalid arguments were:
+**kwargs: {'timeout': 300}
+[2025-03-26T23:59:27.229+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:59:27.291+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/transfer_to_bq.py took 0.126 seconds
+[2025-03-26T23:59:57.832+0000] {processor.py:157} INFO - Started process (PID=217) to work on /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:59:57.833+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/transfer_to_bq.py for tasks to queue
+[2025-03-26T23:59:57.842+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:59:57.841+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:59:57.855+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py:429 AirflowProviderDeprecationWarning: `exists_ok` parameter is deprecated, please use `if_exists`
+[2025-03-26T23:59:57.867+0000] {logging_mixin.py:149} INFO - [2025-03-26T23:59:57.858+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/transfer_to_bq.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/transfer_to_bq.py", line 84, in <module>
+    timeout=300
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 429, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/transfers/gcs_to_bigquery.py", line 230, in __init__
+    super().__init__(**kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 429, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/baseoperator.py", line 789, in __init__
+    f"Invalid arguments were passed to {self.__class__.__name__} (task_id: {task_id}). "
+airflow.exceptions.AirflowException: Invalid arguments were passed to GCSToBigQueryOperator (task_id: load_customers_to_bigquery). Invalid arguments were:
+**kwargs: {'timeout': 300}
+[2025-03-26T23:59:57.868+0000] {processor.py:838} WARNING - No viable dags retrieved from /opt/airflow/dags/transfer_to_bq.py
+[2025-03-26T23:59:57.906+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/transfer_to_bq.py took 0.080 seconds

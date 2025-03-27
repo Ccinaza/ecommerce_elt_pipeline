@@ -1,0 +1,17 @@
+[2025-03-15T22:44:09.677+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: postgres_to_bigquery_transfer.load_sellers_to_bigquery manual__2025-03-15T22:42:31.418665+00:00 [queued]>
+[2025-03-15T22:44:09.692+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: postgres_to_bigquery_transfer.load_sellers_to_bigquery manual__2025-03-15T22:42:31.418665+00:00 [queued]>
+[2025-03-15T22:44:09.692+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2025-03-15T22:44:09.708+0000] {taskinstance.py:1327} INFO - Executing <Task(GCSToBigQueryOperator): load_sellers_to_bigquery> on 2025-03-15 22:42:31.418665+00:00
+[2025-03-15T22:44:09.719+0000] {standard_task_runner.py:57} INFO - Started process 381 to run task
+[2025-03-15T22:44:09.737+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'postgres_to_bigquery_transfer', 'load_sellers_to_bigquery', 'manual__2025-03-15T22:42:31.418665+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/postgres_to_bigquery_transfer.py', '--cfg-path', '/tmp/tmp9813s_w7']
+[2025-03-15T22:44:09.744+0000] {standard_task_runner.py:85} INFO - Job 23: Subtask load_sellers_to_bigquery
+[2025-03-15T22:44:09.812+0000] {logging_mixin.py:149} WARNING - /home/airflow/.local/lib/python3.7/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-15T22:44:10.163+0000] {task_command.py:410} INFO - Running <TaskInstance: postgres_to_bigquery_transfer.load_sellers_to_bigquery manual__2025-03-15T22:42:31.418665+00:00 [running]> on host 43c735050f20
+[2025-03-15T22:44:13.314+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='postgres_to_bigquery_transfer' AIRFLOW_CTX_TASK_ID='load_sellers_to_bigquery' AIRFLOW_CTX_EXECUTION_DATE='2025-03-15T22:42:31.418665+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-15T22:42:31.418665+00:00'
+[2025-03-15T22:44:13.377+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2025-03-15T22:44:13.460+0000] {gcs_to_bigquery.py:373} INFO - Using existing BigQuery table for storing data...
+[2025-03-15T22:44:13.515+0000] {gcs_to_bigquery.py:377} INFO - Executing: {'load': {'autodetect': True, 'createDisposition': 'CREATE_IF_NEEDED', 'destinationTable': {'projectId': 'smiling-audio-448313-p0', 'datasetId': 'ecommerce', 'tableId': 'sellers'}, 'sourceFormat': 'NEWLINE_DELIMITED_JSON', 'sourceUris': ['gs://alt-ecommerce-data/data/sellers/sellers.json'], 'writeDisposition': 'WRITE_TRUNCATE', 'ignoreUnknownValues': False}}
+[2025-03-15T22:44:13.518+0000] {bigquery.py:1592} INFO - Inserting job airflow_postgres_to_bigquery_transfer_load_sellers_to_bigquery_2025_03_15T22_42_31_418665_00_00_c61ed96d33ba1861f63bdfd0924caf70
+[2025-03-15T22:44:48.066+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=postgres_to_bigquery_transfer, task_id=load_sellers_to_bigquery, execution_date=20250315T224231, start_date=20250315T224409, end_date=20250315T224448
+[2025-03-15T22:44:48.577+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-03-15T22:44:48.890+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,17 +1,36 @@
 services:
   postgres:
     image: postgres:latest
+    env_file: .env
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_HOST=postgres
     ports:
       - "5433:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
+      - airflow-db:/opt/airflow/airflow.db
+    networks:
+      - etl-network
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase
+    environment:
+      MB_DB_FILE: /metabase-data/metabase.db
+      GOOGLE_APPLICATION_CREDENTIALS: ./gcp_creds.json
+    ports:
+      - "3000:3000"
+    volumes:
+      - metabase-data:/metabase-data
+    networks:
+      - etl-network
 
   airflow-init:
-    image: apache/airflow:2.6.2
+    build: .
+    env_file: .env
     environment:
       - AIRFLOW_HOME=/opt/airflow
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
@@ -21,10 +40,15 @@ services:
       - AIRFLOW_USERNAME=${AIRFLOW_USERNAME}
       - AIRFLOW_PASSWORD=${AIRFLOW_PASSWORD}
       - AIRFLOW_EMAIL=${AIRFLOW_EMAIL}
+      - GOOGLE_APPLICATION_CREDENTIALS=/opt/airflow/gcp_creds.json
+      - GCP_PROJECT_ID=${GCP_PROJECT_ID}
+      - GCP_BUCKET_NAME=${GCP_BUCKET_NAME}
+      - BIGQUERY_DATASET=${BIGQUERY_DATASET}
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
+      - ./data:/opt/airflow/data
     command: >
       bash -c "airflow db init &&
       airflow users create
@@ -36,10 +60,14 @@ services:
       --email ${AIRFLOW_EMAIL}"
     depends_on:
       - postgres
+    networks:
+      - etl-network
+
 
   webserver:
-    image: apache/airflow:2.6.2
-    command: webserver
+    build: .
+    env_file: .env
+    command: airflow webserver
     ports:
       - "8081:8080"
     environment:
@@ -48,30 +76,72 @@ services:
       - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
       - AIRFLOW__CORE__FERNET_KEY=${FERNET_KEY}
       - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW_USERNAME=${AIRFLOW_USERNAME}
+      - AIRFLOW_PASSWORD=${AIRFLOW_PASSWORD}
+      - AIRFLOW_EMAIL=${AIRFLOW_EMAIL}
+      - GOOGLE_APPLICATION_CREDENTIALS=/opt/airflow/gcp_creds.json
+      - GCP_PROJECT_ID=${GCP_PROJECT_ID}
+      - GCP_BUCKET_NAME=${GCP_BUCKET_NAME}
+      - BIGQUERY_DATASET=${BIGQUERY_DATASET}
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
+      - ./data:/opt/airflow/data
     depends_on:
       - postgres
       - airflow-init
+    networks:
+      - etl-network
 
   scheduler:
-    image: apache/airflow:2.6.2
-    command: scheduler
+    build: .
+    env_file: .env
+    command: airflow scheduler
     environment:
       - AIRFLOW_HOME=/opt/airflow
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
       - AIRFLOW__CORE__FERNET_KEY=${FERNET_KEY}
       - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW_USERNAME=${AIRFLOW_USERNAME}
+      - AIRFLOW_PASSWORD=${AIRFLOW_PASSWORD}
+      - AIRFLOW_EMAIL=${AIRFLOW_EMAIL}
+      - GOOGLE_APPLICATION_CREDENTIALS=/opt/airflow/gcp_creds.json
+      - GCP_PROJECT_ID=${GCP_PROJECT_ID}
+      - GCP_BUCKET_NAME=${GCP_BUCKET_NAME}
+      - BIGQUERY_DATASET=${BIGQUERY_DATASET}
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
+      - ./data:/opt/airflow/data
+      - ./E-commerce\ Capstone/ecommerce_elt_pipeline/gcp_creds.json:/opt/airflow/gcp_creds.json
     depends_on:
       - postgres
       - airflow-init
+    networks:
+      - etl-network
+
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - etl-network
+
 
 volumes:
   postgres-data:
+  airflow-db:
+  metabase-data:
+
+networks:
+  etl-network:
+    driver: bridge

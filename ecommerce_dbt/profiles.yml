@@ -1,0 +1,11 @@
+ecommerce_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: smiling-audio-448313-p0
+      dataset: ecommerce
+      threads: 4
+      keyfile: /Users/blessingangus/Downloads/data_engineering/personal_de_projects/E-commerce Capstone/ecommerce_elt_pipeline/gcp_creds.json
+      location: europe-west1  # Add this line!
