@@ -19,7 +19,7 @@ The architecture consists of:
 
 - Visualization: Metabase for dashboarding
 
-![Ecommerce ETL Architecture](image-1.png)
+![Ecommerce ETL Architecture](image-2.png)
 
 ## Detailed Component Analysis
 
@@ -78,7 +78,7 @@ cd project-directory
 docker-compose up -d
 ``` 
 
-3. Ingest Data into PostgreSQL by triggering the `data_ingestion` DAG on teh airflow webserver UI. You can access it by navigating to http:/localhost:8080 in your browser.
+3. Ingest Data into PostgreSQL by triggering the `data_ingestion` DAG on the airflow webserver UI. You can access it by navigating to http:/localhost:8080 in your browser.
 
 4. Transfer Data to BigQuery
 Ensure your GCP credentials are set up, then trigger the rest of the DAGs from the Airflow web UI to start the data transfer to BigQuery process.
